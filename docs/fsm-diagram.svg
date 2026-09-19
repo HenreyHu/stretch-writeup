@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" width="760" height="440" font-family="JetBrains Mono, ui-monospace, monospace">
+  <rect width="760" height="440" rx="12" fill="#0d0f12"/>
+  <rect x="0.5" y="0.5" width="759" height="439" rx="12" fill="none" stroke="#23272d"/>
+
+  <!-- nodes -->
+  <g font-size="15" font-weight="600">
+    <!-- Idle -->
+    <rect x="60" y="50" width="150" height="60" rx="10" fill="#14171b" stroke="#5fd4c4" stroke-width="1.5"/>
+    <text x="135" y="86" text-anchor="middle" fill="#e8e6e1">Idle</text>
+
+    <!-- Patrol -->
+    <rect x="550" y="50" width="150" height="60" rx="10" fill="#14171b" stroke="#5fd4c4" stroke-width="1.5"/>
+    <text x="625" y="86" text-anchor="middle" fill="#e8e6e1">Patrol</text>
+
+    <!-- Spot -->
+    <rect x="550" y="330" width="150" height="60" rx="10" fill="#14171b" stroke="#5fd4c4" stroke-width="1.5"/>
+    <text x="625" y="366" text-anchor="middle" fill="#e8e6e1">Spot</text>
+
+    <!-- Charge -->
+    <rect x="60" y="330" width="150" height="60" rx="10" fill="#14171b" stroke="#5fd4c4" stroke-width="1.5"/>
+    <text x="135" y="366" text-anchor="middle" fill="#e8e6e1">Charge</text>
+  </g>
+
+  <!-- edges -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9a9fa6"/>
+    </marker>
+  </defs>
+
+  <g stroke="#9a9fa6" stroke-width="1.4" fill="none" font-size="12" font-weight="400">
+    <!-- Idle -> Patrol -->
+    <path d="M210,80 H550" marker-end="url(#arrow)"/>
+    <text x="380" y="72" text-anchor="middle" fill="#9a9fa6">patrol timer elapses</text>
+
+    <!-- Patrol -> Spot -->
+    <path d="M625,110 V330" marker-end="url(#arrow)"/>
+    <text x="700" y="225" text-anchor="middle" fill="#9a9fa6" transform="rotate(90 700 225)">player enters detection cone</text>
+
+    <!-- Spot -> Charge -->
+    <path d="M550,360 H210" marker-end="url(#arrow)"/>
+    <text x="380" y="352" text-anchor="middle" fill="#9a9fa6">line of sight confirmed</text>
+
+    <!-- Spot -> Patrol (back edge, curved) -->
+    <path d="M610,330 C610,220 640,220 640,110" marker-end="url(#arrow)"/>
+    <text x="700" y="220" text-anchor="middle" fill="#676c73" font-size="11">lost visual</text>
+
+    <!-- Charge -> Patrol (curved, long) -->
+    <path d="M135,330 C135,20 400,20 550,65" marker-end="url(#arrow)"/>
+    <text x="330" y="30" text-anchor="middle" fill="#676c73" font-size="11">target evades / out of range</text>
+  </g>
+</svg>
