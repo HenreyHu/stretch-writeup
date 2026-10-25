@@ -2,6 +2,10 @@
 
 2D platformer built by a team of eight (six programmers, two artists) on a custom C++ engine written for this project. My role was Programmer, credited on the team as AI and UI Champion. I built seven systems for the game, enemy AI, the full persistence layer, checkpoint handling, editor undo and redo, the UI system, scene lifecycle, and the splash screen. This document walks through each one, with real code pulled from my own source files, and explains the reasoning behind it.
 
+![STRETCH game trailer, the frog waking in a broken lab tank](docs/stretch-intro.gif)
+
+*Footage from the game trailer, made by the STRETCH art team.*
+
 ## Contents
 
 - [Where this sits in the engine](#where-this-sits-in-the-engine)
@@ -29,6 +33,10 @@
 | Splash screen | `SplashScreen.cpp` / `.h` | Fade-in, hold, fade-out intro sequence before the main menu |
 
 ## Enemy AI
+
+![Gameplay footage from the STRETCH game trailer, with an enemy in the corridor](docs/stretch-gameplay.gif)
+
+*Gameplay footage from the game trailer.*
 
 The enemy behaviour is a four-state finite state machine, Idle, Patrol, Spot, and Charge. The FSM framework itself, the templated `StateMachine<T>` and `State<T>` classes, was written by a teammate. What I built on top of it is the actual enemy logic, the four state classes, the per-entity context, and the transition rules between them.
 
@@ -711,4 +719,4 @@ The persistence layer's component registry uses raw function pointers (`LoadFn`,
 
 ## Credits
 
-STRETCH was built by a team of eight, six programmers and two artists. The systems documented in this write-up, enemy AI, the persistence layer, checkpoint handling, editor undo and redo, the UI system, scene lifecycle, and the splash screen, are mine.
+STRETCH was built by a team of eight, six programmers and two artists. The systems documented in this write-up, enemy AI, the persistence layer, checkpoint handling, editor undo and redo, the UI system, scene lifecycle, and the splash screen, are mine. The GIFs shown in this write-up, taken from the game trailer, were made by the STRETCH art team.
